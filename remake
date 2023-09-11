@@ -1,5 +1,12 @@
-cd ./library
 clear
+echo "---------remaking library-------------"
+cd ./library
+make clean
+make
+cd ..
+
+echo "---------remaking tests---------------"
+cd ./tests
 make clean
 make
 cd ..
