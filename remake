@@ -1,15 +1,13 @@
 clear
 
-echo "---------remaking client-------------"
+echo "--------- remaking client -------------"
 cd ./client
 make clean
 make
 cd ..
 
-echo "---------remaking tests---------------"
+echo "--------- remaking tests ---------------"
 cd ./tests
 make clean
 make
 cd ..
-
-cp ./client/output/IB.Cpp.Api.Client ./tests/lib

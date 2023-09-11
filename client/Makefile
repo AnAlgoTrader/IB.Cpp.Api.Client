@@ -26,7 +26,7 @@ INCLUDE	:= include
 # define lib directory
 LIB		:= lib
 
-MAIN	:= IB.Cpp.Api.Client
+MAIN	:= ib.cpp.api.client
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
 FIXPATH = $1
@@ -81,6 +81,5 @@ clean:
 	$(RM) $(call FIXPATH,$(DEPS))
 	@echo Cleanup complete!
 
-run: all
-	./$(OUTPUTMAIN)
-	@echo Executing 'run: all' complete!
+install:
+	sudo install $(OUTPUTMAIN) /usr/local/lib
