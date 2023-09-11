@@ -1,4 +1,5 @@
 clear
+
 echo "---------remaking client-------------"
 cd ./client
 make clean

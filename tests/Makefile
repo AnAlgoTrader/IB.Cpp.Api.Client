@@ -29,16 +29,12 @@ LIB		:= lib
 MAIN	:= tests
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
-LIBDIRS		:= $(shell find $(LIB) -type d)
 FIXPATH = $1
 RM = rm -f
 MD	:= mkdir -p
 
 # define any directories containing header files other than /usr/include
 INCLUDES	:= $(patsubst %,-I%, $(INCLUDEDIRS:%/=%))
-
-# define the C libs
-LIBS		:= $(patsubst %,-L%, $(LIBDIRS:%/=%))
 
 # define the C source files
 SOURCES		:= $(wildcard $(patsubst %,%/*.cpp, $(SOURCEDIRS)))
@@ -64,7 +60,7 @@ $(OUTPUT):
 	$(MD) $(OUTPUT)
 
 $(MAIN): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(OUTPUTMAIN) $(OBJECTS) $(LFLAGS) $(LIBS)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(OUTPUTMAIN) $(OBJECTS) $(LFLAGS)
 
 # include all .d files
 -include $(DEPS)
