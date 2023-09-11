@@ -23,9 +23,6 @@ SRC		:= src
 # define include directory
 INCLUDE	:= include
 
-# define lib directory
-LIB		:= lib
-
 MAIN	:= tests
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
