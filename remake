@@ -1,6 +1,6 @@
 clear
-echo "---------remaking library-------------"
-cd ./library
+echo "---------remaking client-------------"
+cd ./client
 make clean
 make
 cd ..
@@ -11,4 +11,4 @@ make clean
 make
 cd ..
 
-cp ./library/output/IB.Cpp.Api.Client ./tests/lib
+cp ./client/output/IB.Cpp.Api.Client ./tests/lib
