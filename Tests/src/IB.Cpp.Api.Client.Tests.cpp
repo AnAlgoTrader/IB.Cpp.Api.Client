@@ -5,8 +5,6 @@ using namespace std;
 int main()
 {
 	TestLibrary testLibrary;
-	cout << testLibrary.getString() << endl; // prints !!!Hello World!!!
+	cout << testLibrary.getString() << endl;
 	return 0;
-
-
 }
