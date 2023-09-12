@@ -5,9 +5,11 @@
 
 # define the Cpp compiler to use
 CXX = g++
+CXX2 = gcc
 
 # define any compile-time flags
 CXXFLAGS	:= -std=c++17 -Wall -Wextra -g
+CXX2FLAGS	:= -shared
 
 # define library paths in addition to /usr/lib
 #   if I wanted to include libraries not in /usr/lib I'd specify
@@ -27,6 +29,7 @@ INCLUDE	:= include
 LIB		:= lib
 
 MAIN	:= ib.cpp.api.client
+LIBRARY_NAME := ib.cpp.api.client.so
 SOURCEDIRS	:= $(shell find $(SRC) -type d)
 INCLUDEDIRS	:= $(shell find $(INCLUDE) -type d)
 FIXPATH = $1
@@ -53,6 +56,7 @@ DEPS		:= $(OBJECTS:.o=.d)
 #
 
 OUTPUTMAIN	:= $(call FIXPATH,$(OUTPUT)/$(MAIN))
+OUTPUT_LIBRARY	:= $(call FIXPATH,$(OUTPUT)/$(LIBRARY_NAME))
 
 all: $(OUTPUT) $(MAIN)
 	@echo Executing 'all' complete!
@@ -62,6 +66,7 @@ $(OUTPUT):
 
 $(MAIN): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(OUTPUTMAIN) $(OBJECTS) $(LFLAGS)
+	$(CXX2) $(CXX2FLAGS) -o $(OUTPUT_LIBRARY) $(OBJECTS)
 
 # include all .d files
 -include $(DEPS)
@@ -82,4 +87,4 @@ clean:
 	@echo Cleanup complete!
 
 install:
-	sudo install $(OUTPUTMAIN) /usr/local/lib
+	sudo install $(OUTPUT_LIBRARY) /usr/local/lib
