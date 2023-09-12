@@ -1,5 +1,5 @@
 ./remake
 cd ./client
-echo "--------- installing ib.cpp.api.client  to /usr/local/lib -------------"
+echo "--------- installing ib.cpp.api.client.so  to /usr/local/lib -------------"
 make install
 cd ..
