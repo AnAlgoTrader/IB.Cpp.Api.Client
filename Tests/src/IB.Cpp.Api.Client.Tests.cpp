@@ -1,10 +1,8 @@
 #include <iostream>
-#include "TestLibrary.h"
 using namespace std;
 
 int main()
 {
-	TestLibrary testLibrary;
-	cout << testLibrary.getString() << endl;
+	cout << "hello" << endl;
 	return 0;
 }
